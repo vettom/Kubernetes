@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+    name: {{ include "mycompany.fullname" . }}-proxytier
+spec:
+    replicas: {{ .Values.replicaCount }}
+    minReadySeconds: 10
+    template:
+        metadata:
+            labels:
+              app: {{ .Chart.Name }}
+              tier: {{ .Values.proxytier }}
+        spec:
+            containers:
+            - name: {{ .Chart.Name }}-proxytier
+              image: index.docker.io/dennysv/alpine-nginx-version1.0
+              ports:
+              - containerPort: {{ .Values.httpport }}
+              volumeMounts:
+              - mountPath: /etc/nginx/conf.d # mount and place necessary config
+                readOnly: true
+                name: {{ include "mycompany.fullname" . }}-proxymap
+            volumes:
+            - name: {{ include "mycompany.fullname" . }}-proxymap
+              configMap:
+                name: {{ include "mycompany.fullname" . }}-proxymap # place ConfigMap 
+                items:
+                  - key: proxyweb01.conf
+                    path: proxyweb01.conf
+                  - key: proxyweb02.conf
+                    path: proxyweb02.conf
+                  - key: default.conf
+                    path: default.conf

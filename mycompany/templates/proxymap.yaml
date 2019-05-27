@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "mycompany.fullname" . }}-proxymap
+data:
+  proxyweb01.conf: |
+    server {
+    listen       {{ .Values.proxyport }};
+    server_name  {{ .Values.web1 }};
+
+    charset koi8-r;
+    access_log  /var/log/nginx/{{ .Values.web1 }}.access.log  main;
+
+    location / {
+        proxy_set_header Host $host;
+        proxy_pass http://{{ include "mycompany.fullname" . }}-websvc:{{ .Values.httpport }}/;
+        proxy_http_version 1.1;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+    }
+  proxyweb02.conf: |
+    server {
+    listen       {{ .Values.proxyport }};
+    server_name  {{ .Values.web2 }};
+
+    charset koi8-r;
+    access_log  /var/log/nginx/{{ .Values.web2 }}.access.log  main;
+
+    location / {
+        proxy_set_header Host $host;
+        proxy_pass http://{{ include "mycompany.fullname" . }}-websvc:{{ .Values.httpport }}/;
+        proxy_http_version 1.1;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+    }
+  default.conf: |
+    server {
+    listen       {{ .Values.proxyport }};
+    server_name  localhost;
+
+    charset koi8-r;
+    access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+    }
+ 

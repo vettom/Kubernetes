@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+    name: {{ include "mycompany.fullname" . }}-webdeploy
+spec:
+    replicas: {{ .Values.replicaCount }}
+    minReadySeconds: 10
+    template:
+        metadata:
+            labels:
+              app: {{ .Chart.Name }}
+              tier: {{ .Values.webtier }}
+        spec:
+            containers:
+            - name: {{ .Chart.Name }}-web
+              image: index.docker.io/dennysv/alpine-nginx-version1.0
+              ports:
+              - containerPort: {{ .Values.httpport }}
+              volumeMounts:
+              - mountPath: /etc/nginx/conf.d # mount and place necessary config
+                readOnly: true
+                name: {{ include "mycompany.fullname" . }}-map
+            volumes:
+            - name: {{ include "mycompany.fullname" . }}-map
+              configMap:
+                name: {{ include "mycompany.fullname" . }}-map # place ConfigMap 
+                items:
+                  - key: web01.conf
+                    path: web01.conf
+                  - key: web02.conf
+                    path: web02.conf
+                  - key: index1.html
+                    path: web01/index.html # Directory and file name relative to mount
+                  - key: index2.html
+                    path: web02/index.html # Directory and file name relative to mount
