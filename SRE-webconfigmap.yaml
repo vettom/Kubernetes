@@ -1,0 +1,120 @@
+# Working configuration with 2 Web server and all custom configuration provided with ConfigMap
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-conf
+data:
+  web01.conf: |
+    server {
+    listen       80;
+    server_name  vettom.co.uk;
+
+    #charset koi8-r;
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        root   /etc/nginx/conf.d/web01/;
+        index  index.html index.htm;
+    }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+    }
+  index1.html: |
+    <h1>This is Web 1 </h1>
+  web02.conf: |
+    server {
+    listen       80;
+    server_name  vettom1.co.uk;
+
+    #charset koi8-r;
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        root   /etc/nginx/conf.d/web02/;
+        index  index.html index.htm;
+    }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+    }
+  index2.html: |
+    <h1>This is Web 2 </h1>
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+    name: vetton-nginx
+spec:
+    replicas: 1
+    minReadySeconds: 10
+    template:
+        metadata:
+            labels:
+              app: alpine-nginx-version1.0
+        spec:
+            containers:
+            - name: vettom-alpinenginx-web1
+              image: index.docker.io/dennysv/alpine-nginx-version1.0
+              ports:
+              - containerPort: 80
+              volumeMounts:
+              - mountPath: /etc/nginx/conf.d # mount and place necessary config
+                readOnly: true
+                name: nginx-conf
+            volumes:
+            - name: nginx-conf
+              configMap:
+                name: nginx-conf # place ConfigMap 
+                items:
+                  - key: web01.conf
+                    path: web01.conf
+                  - key: web02.conf
+                    path: web02.conf
+                  - key: index1.html
+                    path: web01/index.html # Directory and file name relative to mount
+                  - key: index2.html
+                    path: web02/index.html # Directory and file name relative to mount
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vetton-nginxsvc
+  labels:
+    app: alpine-nginx-version1.0
+spec:
+  # type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+  selector:
+    app: alpine-nginx-version1.0
+
+
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: vetton-nginxsvc
+#   labels:
+#     app: alpine-nginx-version1.0
+# spec:
+#   type: LoadBalancer
+#   ports:
+#   - protocol: TCP
+#     port: 80
+#   selector:
+#     app: alpine-nginx-version1.0

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind : ResourceQuota
+metadata:
+    name: RQuota
+spec:
+    hard:
+      requests.cpu: .2
+      requests.memory: 100m 
+      limits.cpu: 1
+      limits.meory: 1g
