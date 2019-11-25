@@ -1,0 +1,23 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: role-deploy
+  namespace: default
+rules:
+- apiGroups:
+  # By default core us assumed.
+  - ""
+  - "apps"
+  - "extensions"
+  resourceNames:
+    # Specify resourcename if need to restrict further.
+    - blue-app
+    - red-app
+  resources:
+    # Resources this role can provide access to in NS
+  - pods
+  - deployments
+  verbs:
+  # Define what permisions to provide.
+  - list
+  - create

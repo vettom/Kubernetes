@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: role-deploy-binding
+  # By default applied to default namespace.
+  namespace: default
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  # Name of the role associated with this binding.
+  kind: Role
+  name: role-deploy
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  # Specify which users are bound to this bindingd
+  kind: User
+  name: dev-user

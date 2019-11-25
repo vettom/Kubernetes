@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: rq-vettom-ns
+spec:
+  hard:
+    requests.cpu: ".5"
+    requests.memory: 1Gi
+    limits.cpu: "1"
+    limits.memory: 2Gi

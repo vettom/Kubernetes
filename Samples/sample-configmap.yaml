@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: 2016-02-18T18:52:05Z
+  name: sample-configmap
+  namespace: default
+
+data:
+  COLOR: blue
+  game.properties: |
+    enemies=aliens
+    lives=3
