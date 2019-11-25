@@ -12,7 +12,7 @@ web2: service2.mycompany.com
 
 
 image:
-  repository: nginx
+  repository: index.docker.io/dennysv/alpine-nginx-version1.0
   tag: stable
   pullPolicy: IfNotPresent
 
