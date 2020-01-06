@@ -10,11 +10,12 @@ spec:
   - image: nginx
     name: nginxpod
     env:
-    - name: SURNAME
-      value: Vettom
+      - name: SURNAME
+        value: Vettom
 
     resources: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
 
+  
