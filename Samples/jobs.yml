@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  labels:
+    run: jobrun
+  name: jobrun
+spec:
+  parallelism: 3
+  completion: 3
+  backoffLimit: 100
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: jobrun
+    spec:
+      containers:
+      - image: kodekloud/throw-dice
+        name: jobrun
+        resources: {}
+      restartPolicy: OnFailure
+status: {}

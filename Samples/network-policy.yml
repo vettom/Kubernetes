@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: net1
+  namespace: default
+spec:
+  # podSelector: {} matches all pods in namespace
+  podSelector:
+    matchLabels:
+# Applies to all the pods with role web
+      role: web
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+    # - {} allow all ingress
+  - from:
+    - podSelector:
+        matchLabels:
+          role: frontend
+    ports:
+    - protocol: TCP
+      port: 80
+   egress:
+    # - {} allow all ingress
+  - to:
+    - podSelector:
+        matchLabels:
+          role: backend
+    ports:
+    - protocol: TCP
+      port: 80

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: volume-pod
+spec:
+  containers:
+  - image: dennysv/alpine-nginx-version1.0
+    name: voleme-container
+    volumeMounts:
+    - mountPath: /cache
+      name: cache-volume
+    - mountPath: /tmpmount
+      name: temp-volume
+  volumes:
+    # Creatng empty volume for sharing data with in pods. It will get destroyed when pod terminated
+  - name: cache-volume
+    emptyDir: {}
+    # Creating volume from local Path
+  - name: temp-volume
+    hostPath:
+      path: /tmp
+      type: Directory

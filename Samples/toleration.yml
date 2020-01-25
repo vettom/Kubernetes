@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: tolerate
+  name: tolerate
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: tolerate
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: tolerate
+    spec:
+      containers:
+      - image: nginx
+        name: tolerate
+        resources: {}
+      # Defined as array under Container section. Must add value in double quotes
+      tolerations:
+      - key: "env"
+        value: "Prod"
+        effect: "NoSchedule"
+        operator: "Equal" 
+status: {}
+
+
+#  Apply taint 'k taint node node01 env=Prod:NoSchedule'

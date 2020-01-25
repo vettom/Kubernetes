@@ -1,0 +1,1791 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "cni.projectcalico.org/podIP": "192.168.33.233/32"
+                },
+                "creationTimestamp": "2019-12-15T17:00:58Z",
+                "generateName": "affinity-7656bc6dbc-",
+                "labels": {
+                    "pod-template-hash": "7656bc6dbc",
+                    "run": "affinity"
+                },
+                "name": "affinity-7656bc6dbc-h9lgk",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "affinity-7656bc6dbc",
+                        "uid": "845b531f-f709-4feb-a181-ffab26d3ec31"
+                    }
+                ],
+                "resourceVersion": "653111",
+                "selfLink": "/api/v1/namespaces/default/pods/affinity-7656bc6dbc-h9lgk",
+                "uid": "fea25476-9dfe-4025-a120-6f4d0e1f0b0d"
+            },
+            "spec": {
+                "affinity": {
+                    "nodeAffinity": {
+                        "requiredDuringSchedulingIgnoredDuringExecution": {
+                            "nodeSelectorTerms": [
+                                {
+                                    "matchExpressions": [
+                                        {
+                                            "key": "kubernetes.io/os",
+                                            "operator": "In",
+                                            "values": [
+                                                "linux",
+                                                "amd64"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "containers": [
+                    {
+                        "image": "nginx",
+                        "imagePullPolicy": "Always",
+                        "name": "affinity",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "kworker1.example.com",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-wxjfg",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-wxjfg"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:00:58Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:26:13Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:26:13Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:00:58Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://0ff34d7808546377a5ea95e3609dc6d1a03934d412028b1ab18b7516c4b1d05b",
+                        "image": "nginx:latest",
+                        "imageID": "docker-pullable://nginx@sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://8c972522010f14dd1af6a72f09f5c696ca9104a0b7c407a4957f77cb38103c69",
+                                "exitCode": 0,
+                                "finishedAt": "2019-12-15T23:52:45Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-12-15T17:01:05Z"
+                            }
+                        },
+                        "name": "affinity",
+                        "ready": true,
+                        "restartCount": 1,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2019-12-19T08:26:12Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.42.42.101",
+                "phase": "Running",
+                "podIP": "192.168.33.233",
+                "podIPs": [
+                    {
+                        "ip": "192.168.33.233"
+                    }
+                ],
+                "qosClass": "BestEffort",
+                "startTime": "2019-12-15T17:00:58Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "cni.projectcalico.org/podIP": "192.168.33.234/32"
+                },
+                "creationTimestamp": "2019-12-12T16:47:26Z",
+                "generateName": "affinity-7656bc6dbc-",
+                "labels": {
+                    "pod-template-hash": "7656bc6dbc",
+                    "run": "affinity"
+                },
+                "name": "affinity-7656bc6dbc-vp457",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "affinity-7656bc6dbc",
+                        "uid": "845b531f-f709-4feb-a181-ffab26d3ec31"
+                    }
+                ],
+                "resourceVersion": "653118",
+                "selfLink": "/api/v1/namespaces/default/pods/affinity-7656bc6dbc-vp457",
+                "uid": "cd9e6548-6a6c-498b-b86e-a6ef51413cba"
+            },
+            "spec": {
+                "affinity": {
+                    "nodeAffinity": {
+                        "requiredDuringSchedulingIgnoredDuringExecution": {
+                            "nodeSelectorTerms": [
+                                {
+                                    "matchExpressions": [
+                                        {
+                                            "key": "kubernetes.io/os",
+                                            "operator": "In",
+                                            "values": [
+                                                "linux",
+                                                "amd64"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "containers": [
+                    {
+                        "image": "nginx",
+                        "imagePullPolicy": "Always",
+                        "name": "affinity",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "kworker1.example.com",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-wxjfg",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-wxjfg"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-12T16:47:26Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:26:14Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:26:14Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-12T16:47:26Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://de5ee265c9f06b14491c163fcfd9f8fa45822531390d7080a2c64c2d288f9b01",
+                        "image": "nginx:latest",
+                        "imageID": "docker-pullable://nginx@sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://860935faecfaf9669b2fb89b4be0e52041b0209fac63eec61dbbd08a8c5efff7",
+                                "exitCode": 0,
+                                "finishedAt": "2019-12-15T23:52:45Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-12-15T16:55:28Z"
+                            }
+                        },
+                        "name": "affinity",
+                        "ready": true,
+                        "restartCount": 2,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2019-12-19T08:26:14Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.42.42.101",
+                "phase": "Running",
+                "podIP": "192.168.33.234",
+                "podIPs": [
+                    {
+                        "ip": "192.168.33.234"
+                    }
+                ],
+                "qosClass": "BestEffort",
+                "startTime": "2019-12-12T16:47:26Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "cni.projectcalico.org/podIP": "192.168.33.232/32"
+                },
+                "creationTimestamp": "2019-12-12T14:11:47Z",
+                "generateName": "dep1-86d694d5c6-",
+                "labels": {
+                    "env": "dev",
+                    "pod-template-hash": "86d694d5c6"
+                },
+                "name": "dep1-86d694d5c6-g78dp",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "dep1-86d694d5c6",
+                        "uid": "3287d564-7ebc-43d5-a778-904db67bbe41"
+                    }
+                ],
+                "resourceVersion": "653137",
+                "selfLink": "/api/v1/namespaces/default/pods/dep1-86d694d5c6-g78dp",
+                "uid": "c09cad1f-d4ba-462a-9af3-a32f367960d1"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "nginx",
+                        "imagePullPolicy": "Always",
+                        "name": "pod1",
+                        "ports": [
+                            {
+                                "containerPort": 80,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    },
+                    {
+                        "image": "redis",
+                        "imagePullPolicy": "Always",
+                        "name": "pod2",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "kworker1.example.com",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-wxjfg",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-wxjfg"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-12T14:11:47Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:26:19Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:26:19Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-12T14:11:47Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://25c430c12d485a9d658761869d5179770ff34b950b4a92353bb4473a0fd866f5",
+                        "image": "nginx:latest",
+                        "imageID": "docker-pullable://nginx@sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://5e3b06b18f3f667ca0f8fb9f229bc7e4e4ab9c4ea03d00c3008ba045e323f20d",
+                                "exitCode": 0,
+                                "finishedAt": "2019-12-15T23:52:45Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-12-15T16:55:33Z"
+                            }
+                        },
+                        "name": "pod1",
+                        "ready": true,
+                        "restartCount": 2,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2019-12-19T08:26:11Z"
+                            }
+                        }
+                    },
+                    {
+                        "containerID": "docker://4f9f8f371f5a731508d132cdc0059a3d8bedf743736f22881723259341d7623a",
+                        "image": "redis:latest",
+                        "imageID": "docker-pullable://redis@sha256:1eedfc017b0cd3e232878ce38bd9328518219802a8ef37fe34f58dcf591688ef",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://a2c3ceb948bc82f22c93779036c1db48442167e7133200b538682eee5e867c6c",
+                                "exitCode": 0,
+                                "finishedAt": "2019-12-15T23:52:45Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-12-15T16:55:35Z"
+                            }
+                        },
+                        "name": "pod2",
+                        "ready": true,
+                        "restartCount": 2,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2019-12-19T08:26:17Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.42.42.101",
+                "phase": "Running",
+                "podIP": "192.168.33.232",
+                "podIPs": [
+                    {
+                        "ip": "192.168.33.232"
+                    }
+                ],
+                "qosClass": "BestEffort",
+                "startTime": "2019-12-12T14:11:47Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "cni.projectcalico.org/podIP": "192.168.33.217/32",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Pod\",\"metadata\":{\"annotations\":{},\"creationTimestamp\":null,\"labels\":{\"env\":\"dev\"},\"name\":\"multi\",\"namespace\":\"default\"},\"spec\":{\"containers\":[{\"image\":\"nginx\",\"name\":\"nginx\"},{\"image\":\"redis\",\"name\":\"redi1\"}],\"dnsPolicy\":\"ClusterFirst\",\"restartPolicy\":\"Never\"},\"status\":{}}\n"
+                },
+                "creationTimestamp": "2019-12-12T14:03:55Z",
+                "labels": {
+                    "env": "dev"
+                },
+                "name": "multi",
+                "namespace": "default",
+                "resourceVersion": "615004",
+                "selfLink": "/api/v1/namespaces/default/pods/multi",
+                "uid": "6182dcf9-ea5f-4092-bffd-eca7edfe2d25"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "nginx",
+                        "imagePullPolicy": "Always",
+                        "name": "nginx",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    },
+                    {
+                        "image": "redis",
+                        "imagePullPolicy": "Always",
+                        "name": "redi1",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "kworker1.example.com",
+                "priority": 0,
+                "restartPolicy": "Never",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-wxjfg",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-wxjfg"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-12T14:03:55Z",
+                        "reason": "PodCompleted",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T16:54:39Z",
+                        "reason": "PodCompleted",
+                        "status": "False",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T16:54:39Z",
+                        "reason": "PodCompleted",
+                        "status": "False",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-12T14:03:55Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://52cb7fffb608de8d08416e7e77f0972a1343253623408c9121548898adb4b355",
+                        "image": "nginx:latest",
+                        "imageID": "docker-pullable://nginx@sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566",
+                        "lastState": {},
+                        "name": "nginx",
+                        "ready": false,
+                        "restartCount": 0,
+                        "started": false,
+                        "state": {
+                            "terminated": {
+                                "containerID": "docker://52cb7fffb608de8d08416e7e77f0972a1343253623408c9121548898adb4b355",
+                                "exitCode": 0,
+                                "finishedAt": "2019-12-13T18:39:01Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-12-12T14:03:57Z"
+                            }
+                        }
+                    },
+                    {
+                        "containerID": "docker://af1b1df23eba93a9d8dccfe2975556f5c2649612003ef46ab5fb380ba0f5c15c",
+                        "image": "redis:latest",
+                        "imageID": "docker-pullable://redis@sha256:1eedfc017b0cd3e232878ce38bd9328518219802a8ef37fe34f58dcf591688ef",
+                        "lastState": {},
+                        "name": "redi1",
+                        "ready": false,
+                        "restartCount": 0,
+                        "started": false,
+                        "state": {
+                            "terminated": {
+                                "containerID": "docker://af1b1df23eba93a9d8dccfe2975556f5c2649612003ef46ab5fb380ba0f5c15c",
+                                "exitCode": 0,
+                                "finishedAt": "2019-12-13T18:39:01Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-12-12T14:04:03Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.42.42.101",
+                "phase": "Succeeded",
+                "qosClass": "BestEffort",
+                "startTime": "2019-12-12T14:03:55Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "cni.projectcalico.org/podIP": "192.168.33.239/32"
+                },
+                "creationTimestamp": "2019-12-13T11:11:18Z",
+                "generateName": "mutideploy-64d575d7c-",
+                "labels": {
+                    "pod-template-hash": "64d575d7c",
+                    "run": "mutideploy"
+                },
+                "name": "mutideploy-64d575d7c-9tn55",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "mutideploy-64d575d7c",
+                        "uid": "f4ca90e0-c4c3-497a-8d59-c0ab721c1abd"
+                    }
+                ],
+                "resourceVersion": "653378",
+                "selfLink": "/api/v1/namespaces/default/pods/mutideploy-64d575d7c-9tn55",
+                "uid": "777630c5-f3e1-4235-aaaf-659643d422dc"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "nginx",
+                        "imagePullPolicy": "Always",
+                        "name": "muting",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    },
+                    {
+                        "image": "alpine:nginx",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "alpineng",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "kworker1.example.com",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-wxjfg",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-wxjfg"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-13T11:11:19Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-13T11:11:19Z",
+                        "message": "containers with unready status: [alpineng]",
+                        "reason": "ContainersNotReady",
+                        "status": "False",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-13T11:11:19Z",
+                        "message": "containers with unready status: [alpineng]",
+                        "reason": "ContainersNotReady",
+                        "status": "False",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-13T11:11:18Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "image": "alpine:nginx",
+                        "imageID": "",
+                        "lastState": {},
+                        "name": "alpineng",
+                        "ready": false,
+                        "restartCount": 0,
+                        "started": false,
+                        "state": {
+                            "waiting": {
+                                "message": "Back-off pulling image \"alpine:nginx\"",
+                                "reason": "ImagePullBackOff"
+                            }
+                        }
+                    },
+                    {
+                        "containerID": "docker://e6e13c2e4aa48da9c9da132b96935ea97a6290bdd87e554dbc5e4dfc4d3c2721",
+                        "image": "nginx:latest",
+                        "imageID": "docker-pullable://nginx@sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://7802f039286bc9f17b53263534e4f0f7f344e0594bd3578615117d777d5148a3",
+                                "exitCode": 0,
+                                "finishedAt": "2019-12-15T23:52:45Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-12-15T16:55:26Z"
+                            }
+                        },
+                        "name": "muting",
+                        "ready": true,
+                        "restartCount": 2,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2019-12-19T08:26:26Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.42.42.101",
+                "phase": "Pending",
+                "podIP": "192.168.33.239",
+                "podIPs": [
+                    {
+                        "ip": "192.168.33.239"
+                    }
+                ],
+                "qosClass": "BestEffort",
+                "startTime": "2019-12-13T11:11:19Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "cni.projectcalico.org/podIP": "192.168.33.237/32"
+                },
+                "creationTimestamp": "2019-12-15T17:00:58Z",
+                "generateName": "mutideploy-64d575d7c-",
+                "labels": {
+                    "pod-template-hash": "64d575d7c",
+                    "run": "mutideploy"
+                },
+                "name": "mutideploy-64d575d7c-mczrp",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "mutideploy-64d575d7c",
+                        "uid": "f4ca90e0-c4c3-497a-8d59-c0ab721c1abd"
+                    }
+                ],
+                "resourceVersion": "653384",
+                "selfLink": "/api/v1/namespaces/default/pods/mutideploy-64d575d7c-mczrp",
+                "uid": "dcdb397c-fe3a-43a5-a2d8-15ead24f4abc"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "nginx",
+                        "imagePullPolicy": "Always",
+                        "name": "muting",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    },
+                    {
+                        "image": "alpine:nginx",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "alpineng",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "kworker1.example.com",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-wxjfg",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-wxjfg"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:00:58Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:00:58Z",
+                        "message": "containers with unready status: [alpineng]",
+                        "reason": "ContainersNotReady",
+                        "status": "False",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:00:58Z",
+                        "message": "containers with unready status: [alpineng]",
+                        "reason": "ContainersNotReady",
+                        "status": "False",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:00:58Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "image": "alpine:nginx",
+                        "imageID": "",
+                        "lastState": {},
+                        "name": "alpineng",
+                        "ready": false,
+                        "restartCount": 0,
+                        "started": false,
+                        "state": {
+                            "waiting": {
+                                "message": "Back-off pulling image \"alpine:nginx\"",
+                                "reason": "ImagePullBackOff"
+                            }
+                        }
+                    },
+                    {
+                        "containerID": "docker://dcb343fddd01084cb26887f36d01dd6b0a2a89c9ab8bae207b61ce1628d49d1a",
+                        "image": "nginx:latest",
+                        "imageID": "docker-pullable://nginx@sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://9cb695562a803b29749e994ac66d90b1674374ed94fe79dd00da64f27675f821",
+                                "exitCode": 0,
+                                "finishedAt": "2019-12-15T23:52:45Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-12-15T17:01:07Z"
+                            }
+                        },
+                        "name": "muting",
+                        "ready": true,
+                        "restartCount": 1,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2019-12-19T08:26:21Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.42.42.101",
+                "phase": "Pending",
+                "podIP": "192.168.33.237",
+                "podIPs": [
+                    {
+                        "ip": "192.168.33.237"
+                    }
+                ],
+                "qosClass": "BestEffort",
+                "startTime": "2019-12-15T17:00:58Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "cni.projectcalico.org/podIP": "192.168.33.236/32"
+                },
+                "creationTimestamp": "2019-12-15T17:00:58Z",
+                "generateName": "nginx-6db489d4b7-",
+                "labels": {
+                    "pod-template-hash": "6db489d4b7",
+                    "run": "nginx"
+                },
+                "name": "nginx-6db489d4b7-n5rwk",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "nginx-6db489d4b7",
+                        "uid": "ba85c4d8-6cda-4172-aa1e-23573e891fd9"
+                    }
+                ],
+                "resourceVersion": "653146",
+                "selfLink": "/api/v1/namespaces/default/pods/nginx-6db489d4b7-n5rwk",
+                "uid": "61271eff-83e3-443e-80ef-a317fcfa5f5d"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "nginx",
+                        "imagePullPolicy": "Always",
+                        "name": "nginx",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "kworker1.example.com",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-wxjfg",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-wxjfg"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:00:58Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:26:20Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:26:20Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:00:58Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://9da8e31593a4ee376b7cff9c085fd0aacfca9e440e1582b2f799af4a75aa2594",
+                        "image": "nginx:latest",
+                        "imageID": "docker-pullable://nginx@sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://26ef44f379d50436bfb8b54f12423ea326a01c563ee9565a54c5fa5f4c5f70b7",
+                                "exitCode": 0,
+                                "finishedAt": "2019-12-15T23:52:45Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-12-15T17:01:09Z"
+                            }
+                        },
+                        "name": "nginx",
+                        "ready": true,
+                        "restartCount": 1,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2019-12-19T08:26:19Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.42.42.101",
+                "phase": "Running",
+                "podIP": "192.168.33.236",
+                "podIPs": [
+                    {
+                        "ip": "192.168.33.236"
+                    }
+                ],
+                "qosClass": "BestEffort",
+                "startTime": "2019-12-15T17:00:58Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "cni.projectcalico.org/podIP": "192.168.136.96/32"
+                },
+                "creationTimestamp": "2019-12-15T17:00:58Z",
+                "generateName": "nodeselect-9cf979486-",
+                "labels": {
+                    "pod-template-hash": "9cf979486",
+                    "run": "nodeselect"
+                },
+                "name": "nodeselect-9cf979486-5lttv",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "nodeselect-9cf979486",
+                        "uid": "75068ffa-3a88-4fc4-ac70-655bab7afb3c"
+                    }
+                ],
+                "resourceVersion": "652665",
+                "selfLink": "/api/v1/namespaces/default/pods/nodeselect-9cf979486-5lttv",
+                "uid": "c4759d2a-286d-4d38-9ec4-21324e55775b"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "nginx",
+                        "imagePullPolicy": "Always",
+                        "name": "nodeselect",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "kworker2.example.com",
+                "nodeSelector": {
+                    "env": "prod"
+                },
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-wxjfg",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-wxjfg"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:10:11Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:24:27Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:24:27Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:10:11Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://54f332ef8c0a8d400cba9fe88a3d41c5dbf767beaeeb1b0cc797ee79a6773094",
+                        "image": "nginx:latest",
+                        "imageID": "docker-pullable://nginx@sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://7db86e19db7dc60b028ef2799ff72477a7178b66abc08bcebe69d1e724dba00c",
+                                "exitCode": 0,
+                                "finishedAt": "2019-12-15T23:52:06Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-12-15T17:10:48Z"
+                            }
+                        },
+                        "name": "nodeselect",
+                        "ready": true,
+                        "restartCount": 1,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2019-12-19T08:24:26Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.42.42.102",
+                "phase": "Running",
+                "podIP": "192.168.136.96",
+                "podIPs": [
+                    {
+                        "ip": "192.168.136.96"
+                    }
+                ],
+                "qosClass": "BestEffort",
+                "startTime": "2019-12-15T17:10:11Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "cni.projectcalico.org/podIP": "192.168.136.97/32"
+                },
+                "creationTimestamp": "2019-12-15T17:00:58Z",
+                "generateName": "nodeselect-9cf979486-",
+                "labels": {
+                    "pod-template-hash": "9cf979486",
+                    "run": "nodeselect"
+                },
+                "name": "nodeselect-9cf979486-tpfbt",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "nodeselect-9cf979486",
+                        "uid": "75068ffa-3a88-4fc4-ac70-655bab7afb3c"
+                    }
+                ],
+                "resourceVersion": "652674",
+                "selfLink": "/api/v1/namespaces/default/pods/nodeselect-9cf979486-tpfbt",
+                "uid": "afb80739-2974-4775-b3d4-10249830eaad"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "nginx",
+                        "imagePullPolicy": "Always",
+                        "name": "nodeselect",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "kworker2.example.com",
+                "nodeSelector": {
+                    "env": "prod"
+                },
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-wxjfg",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-wxjfg"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:10:11Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:24:28Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:24:28Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:10:11Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://552bd53bc3223fed16949d2623cf429552416902c206523f6ea514d648a0e7d9",
+                        "image": "nginx:latest",
+                        "imageID": "docker-pullable://nginx@sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://7b020320e1a23809fdde16e53f84878816539218a4e5157a9a41799e6aac4fce",
+                                "exitCode": 0,
+                                "finishedAt": "2019-12-15T23:52:06Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-12-15T17:10:47Z"
+                            }
+                        },
+                        "name": "nodeselect",
+                        "ready": true,
+                        "restartCount": 1,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2019-12-19T08:24:27Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.42.42.102",
+                "phase": "Running",
+                "podIP": "192.168.136.97",
+                "podIPs": [
+                    {
+                        "ip": "192.168.136.97"
+                    }
+                ],
+                "qosClass": "BestEffort",
+                "startTime": "2019-12-15T17:10:11Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "cni.projectcalico.org/podIP": "192.168.33.235/32"
+                },
+                "creationTimestamp": "2019-12-12T16:10:43Z",
+                "generateName": "tolerate-5c7675d67d-",
+                "labels": {
+                    "pod-template-hash": "5c7675d67d",
+                    "run": "tolerate"
+                },
+                "name": "tolerate-5c7675d67d-pxbhr",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "tolerate-5c7675d67d",
+                        "uid": "f5da9b40-76b5-4cbd-8367-f932097fe2e3"
+                    }
+                ],
+                "resourceVersion": "653126",
+                "selfLink": "/api/v1/namespaces/default/pods/tolerate-5c7675d67d-pxbhr",
+                "uid": "3b3e615e-12f2-4e86-a481-93a52e507d54"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "nginx",
+                        "imagePullPolicy": "Always",
+                        "name": "tolerate",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "kworker1.example.com",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoSchedule",
+                        "key": "env",
+                        "operator": "Equal",
+                        "value": "Prod"
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-wxjfg",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-wxjfg"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-12T16:10:43Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:26:16Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:26:16Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-12T16:10:43Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://a43e529cffe7613ada8b9d66d9ae5fafbce3e2ba20d2c4a9fa71d9b2f73aab4d",
+                        "image": "nginx:latest",
+                        "imageID": "docker-pullable://nginx@sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://f767641f3834ddd9e739f52d1639e37d9d85012281b30f822a7ecb27faaa1124",
+                                "exitCode": 0,
+                                "finishedAt": "2019-12-15T23:52:45Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-12-15T16:55:31Z"
+                            }
+                        },
+                        "name": "tolerate",
+                        "ready": true,
+                        "restartCount": 2,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2019-12-19T08:26:16Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.42.42.101",
+                "phase": "Running",
+                "podIP": "192.168.33.235",
+                "podIPs": [
+                    {
+                        "ip": "192.168.33.235"
+                    }
+                ],
+                "qosClass": "BestEffort",
+                "startTime": "2019-12-12T16:10:43Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "cni.projectcalico.org/podIP": "192.168.33.240/32"
+                },
+                "creationTimestamp": "2019-12-15T17:00:58Z",
+                "generateName": "tolerate-5c7675d67d-",
+                "labels": {
+                    "pod-template-hash": "5c7675d67d",
+                    "run": "tolerate"
+                },
+                "name": "tolerate-5c7675d67d-shn4p",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "tolerate-5c7675d67d",
+                        "uid": "f5da9b40-76b5-4cbd-8367-f932097fe2e3"
+                    }
+                ],
+                "resourceVersion": "653167",
+                "selfLink": "/api/v1/namespaces/default/pods/tolerate-5c7675d67d-shn4p",
+                "uid": "044e1689-9040-4d80-a263-35bef8859edd"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "nginx",
+                        "imagePullPolicy": "Always",
+                        "name": "tolerate",
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-wxjfg",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "kworker1.example.com",
+                "priority": 0,
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoSchedule",
+                        "key": "env",
+                        "operator": "Equal",
+                        "value": "Prod"
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-wxjfg",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-wxjfg"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:00:58Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:26:25Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-19T08:26:25Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2019-12-15T17:00:58Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://49ae13237658afe33cbde98171ecb306dd130bfa3a24640641e68c4b383060fd",
+                        "image": "nginx:latest",
+                        "imageID": "docker-pullable://nginx@sha256:50cf965a6e08ec5784009d0fccb380fc479826b6e0e65684d9879170a9df8566",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://15b8913cf5639defaaa98960c2096dde698810395e53d26941d1babe99ec93ed",
+                                "exitCode": 0,
+                                "finishedAt": "2019-12-15T23:52:45Z",
+                                "reason": "Completed",
+                                "startedAt": "2019-12-15T17:01:03Z"
+                            }
+                        },
+                        "name": "tolerate",
+                        "ready": true,
+                        "restartCount": 1,
+                        "started": true,
+                        "state": {
+                            "running": {
+                                "startedAt": "2019-12-19T08:26:24Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "172.42.42.101",
+                "phase": "Running",
+                "podIP": "192.168.33.240",
+                "podIPs": [
+                    {
+                        "ip": "192.168.33.240"
+                    }
+                ],
+                "qosClass": "BestEffort",
+                "startTime": "2019-12-15T17:00:58Z"
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}

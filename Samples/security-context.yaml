@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginxpod
+  name: nginxpod
+spec:
+  containers:
+  - image: nginx
+    name: nginxpod
+    resources: {}
+    # Can be defined at spec level however container level will override. Also capabilities applicable only with in container
+    securityContext:
+      runAsUser: user1
+      capabilities:
+        add: [ "MAC_ADMIN", "SYS_TIME"]
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

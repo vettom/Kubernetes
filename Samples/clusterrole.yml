@@ -1,0 +1,26 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  labels:
+  name: storage-admin
+rules:
+# each entry must have all 3 fields and if resouces are in different api group define additional apiGroups
+#  k api-resources can list all resources and its Group name. So verify apiGroup for each resource.
+- apiGroups:
+  - ''
+  resources:
+  - 'persistentvolumes'
+  verbs:
+  - '*'
+- apiGroups:
+  - 'storage.k8s.io'
+  resources:
+  - 'storageclasses'
+  verbs:
+  - '*'
+- nonResourceURLs:
+  - '*'
+  verbs:
+  - '*

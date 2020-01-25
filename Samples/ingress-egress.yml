@@ -1,0 +1,51 @@
+apiVersion: extensions/v1beta1
+kind: NetworkPolicy
+metadata:
+  name: internal-policy
+  namespace: default
+spec:
+  policyTypes:
+  # Ingress and egress policy. This policy applied to hosts defined in the podSelector
+  - Egress
+  - Ingress
+  egress:
+  # connection to payroll on 8080 and mysql on 3306, nothing else allowed
+  - ports:
+    - port: 8080
+      protocol: TCP
+    to:
+    - podSelector:
+        matchLabels:
+          name: payroll
+  - ports:
+    - port: 3306
+      protocol: TCP
+    to:
+    - podSelector:
+        matchLabels:
+          name: mysql
+  ingress:
+  #  Connection to port 8080 from external and payroll pods.
+  - from:
+    - podSelector:
+        matchLabels:
+          name: external
+  podSelector:
+    matchLabels:
+      name: payroll 
+    ports:
+    - port: 8080
+      protocol: TCP
+
+  # Define which pod this rule is attached
+  podSelector:
+    matchLabels:
+      name: internal
+
+
+# Allow all Egress and Ingress
+
+  # egress:
+  #   - {}
+  # ingress:
+  #   - {}

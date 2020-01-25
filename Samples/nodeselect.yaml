@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nodeselect
+  name: nodeselect
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: nodeselect
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: nodeselect
+    spec:
+      containers:
+      - image: nginx
+        name: nodeselect
+        resources: {}
+# First ser label to Node with k label node node01 env=prod
+      nodeSelector:
+        env: prod
+status: {}
+
+
+#  Apply taint 'k taint node node01 env=Prod:NoSchedule'

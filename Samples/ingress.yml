@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-app
+  namespace: app-space
+  #  Must make sure there us a default service defined to serve 404 pages. 
+  # Default backend:  default-http-backend:80
+spec:
+  rules:
+    # If host not defined all domain accepted for rule
+  - host: mydomain.com
+    http:
+      paths:
+      - backend:
+          serviceName: app-service
+          servicePort: 8080
+        path: /app
+  - http:
+      paths:
+      - backend:
+          serviceName: video-service
+          servicePort: 8080
+        path: /watch
+status:
+  loadBalancer:
+    ingress:
+    - {}
