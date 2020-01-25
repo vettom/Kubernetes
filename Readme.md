@@ -21,9 +21,11 @@
 > Make use of --dry-run and -o yaml, sometimes easier to edit yaml and apply it.
 
 
-** Create simple pod running Nginx **
-``` k run nginx --image=nginx --restart=Never --dry-run -o yaml ```
-- Create Deployment with 4 replicas
+**Create simple pod running Nginx**
+``` 
+k run nginx --image=nginx --restart=Never --dry-run -o yaml 
+```
+**Create Deployment with 4 replicas**
 ``` 
 k create deploy deploy1 --image=nginx --dry-run -o yaml 
 k scale --replicas=4 deploy/deploy1 
