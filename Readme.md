@@ -34,5 +34,5 @@ k scale --replicas=4 deploy/deploy1
 > NodePort cannot be specified at command prompt, get Yaml edit and apply. Or use k create and add matching labels for your service.
 ```
 k expose deploy deploy1 --name=deploy-service --type=NodePort --port=80 --dry-run -o yaml
-Edit yaml and add "nodePort=32005" in ports section and apply config.
 ```
+Edit yaml and add "nodePort=32005" in ports section and apply config.
