@@ -14,7 +14,9 @@
 ### Kube Config
 - Get current context `k config current-context`
 - Set context and namespace `k config set-context newcontext --namespace=newns` 
-- Set namespace in current context `k config set-context \`k config current-context \`  --namespace=newns `
+- Set namespace in current context `k config set-context `k config current-context`  --namespace=newns `
+
+
 - Create simple pod running Nginx 
 ``` k run nginx --image=nginx --restart=Never --dry-run -o yaml ```
 - Create Deployment
