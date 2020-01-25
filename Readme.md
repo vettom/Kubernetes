@@ -30,3 +30,9 @@ k run nginx --image=nginx --restart=Never --dry-run -o yaml
 k create deploy deploy1 --image=nginx --dry-run -o yaml 
 k scale --replicas=4 deploy/deploy1 
 ```
+**Create Service to expose Deploy1 running port 80, on NodePort=32005**
+> NodePort cannot be specified at command prompt, get Yaml edit and apply. Or use k create and add matching labels for your service.
+```
+k expose deploy deploy1 --name=deploy-service --type=NodePort --port=80 --dry-run -o yaml
+Edit yaml and add "nodePort=32005" in ports section and apply config.
+```
