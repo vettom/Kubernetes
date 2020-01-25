@@ -14,10 +14,13 @@
 ### Kube Config
 - Get current context `k config current-context`
 - Set context and namespace `k config set-context newcontext --namespace=newns` 
-- Set namespace in current context `k config set-context `k config current-context`  --namespace=newns `
+- View current configuration `k config view`
+- Read config from a file `k config view --kubeconfig=/newconf.txt`
 
-
+### Useful commands
+> Make use of --dry-run and -o yaml, sometimes easier to edit yaml and apply it.
 - Create simple pod running Nginx 
 ``` k run nginx --image=nginx --restart=Never --dry-run -o yaml ```
-- Create Deployment
-``` k create deploy deploy1 --image=nginx --dry-run -o yaml ```
+- Create Deployment with 4 replicas
+``` k create deploy deploy1 --image=nginx --dry-run -o yaml 
+    k scale --replicas=4 deploy/deploy1```
