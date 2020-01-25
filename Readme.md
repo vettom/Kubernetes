@@ -12,4 +12,4 @@
 # Exam tips
 > Kubectl auto complete `alias k=kubectl; complete -F __start_kubectl`
 - Create simple pod running Nginx 
-`k `
+`k run nginx --image=nginx --restart=Never --dry-run -o yaml `
