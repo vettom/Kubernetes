@@ -11,7 +11,11 @@
 
 # Exam tips
 > Kubectl auto complete `alias k=kubectl; complete -F __start_kubectl`
+### Kube Config
+- Get current context `k config current-context`
+- Set context and namespace `k config set-context newcontext --namespace=newns` 
+- Set namespace in current context `k config set-context \`k config current-context \`  --namespace=newns `
 - Create simple pod running Nginx 
 ``` k run nginx --image=nginx --restart=Never --dry-run -o yaml ```
-- Create Deployment with 2 replicas
+- Create Deployment
 ``` k create deploy deploy1 --image=nginx --dry-run -o yaml ```
