@@ -12,4 +12,6 @@
 # Exam tips
 > Kubectl auto complete `alias k=kubectl; complete -F __start_kubectl`
 - Create simple pod running Nginx 
-`k run nginx --image=nginx --restart=Never --dry-run -o yaml `
+``` k run nginx --image=nginx --restart=Never --dry-run -o yaml ```
+- Create Deployment with 2 replicas
+``` k create deploy deploy1 --image=nginx --dry-run -o yaml ```
