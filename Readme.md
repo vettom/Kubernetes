@@ -9,7 +9,7 @@
 
 
 
-# Exam tips
+# ![alt text](https://vettom.github.io/images/dv-tec-logo-round2cm.png "Denny Vettom  Tech Logo")Exam tips
 > Kubectl auto complete `alias k=kubectl; complete -F __start_kubectl`
 ### Kube Config
 - Get current context `k config current-context`
