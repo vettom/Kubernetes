@@ -19,7 +19,7 @@
 
 ### Useful commands
 > Make use of --dry-run and -o yaml, sometimes easier to edit yaml and apply it.
-- Create simple pod running Nginx 
+** Create simple pod running Nginx **
 ``` k run nginx --image=nginx --restart=Never --dry-run -o yaml ```
 - Create Deployment with 4 replicas
 ``` 
