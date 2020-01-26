@@ -24,6 +24,8 @@
 **Create simple pod running Nginx**
 ``` 
 k run nginx --image=nginx --restart=Never --dry-run -o yaml 
+--restart=Alyays  Creates Deployment
+--restart=OnFailure  Creates a Job
 ```
 **Create Deployment with 4 replicas**
 ``` 
