@@ -7,7 +7,8 @@
 - Vagrant.  : Vagrant Kubernetes environment. (Not sure who wrote it, it works)
 - Mycompany : Helm chart2 sample charts with configmaps
 
-
+# Development Principle
+![alt text](https://vettom.github.io/images/dvethos.jpg "Denny Vettom Development ethos ")
 
 # ![alt text](https://vettom.github.io/images/dv-tec-logo-round2cm.png "Denny Vettom  Tech Logo")Exam tips
 > Kubectl auto complete `alias k=kubectl; complete -F __start_kubectl`
