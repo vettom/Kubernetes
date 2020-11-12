@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/Users/vettom/GIT/Kubernetes/Vagrant/kubernetes/vagrant-provisioning","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
