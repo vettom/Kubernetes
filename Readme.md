@@ -1,5 +1,5 @@
 ![vettom.pages.dev banner](https://vettom-images.s3.eu-west-1.amazonaws.com/logo/vettom-banner.jpg)
-# Kubernetes for SysAdmins ![alt text](https://vettom.github.io/images/RobinR100px.png "Denny Vettom Logo")
+# Kubernetes for SysAdmins 
 
 ## Summary
 
